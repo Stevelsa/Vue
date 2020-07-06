@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.min.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h1>Name:{{Name}} </h1>
+		<h1>Profession:{{Profession}}</h1>
+		<h1>Organization:{{Organization}}</h1>
+	</div>
+
+	<div id="hys">
+		<li v-for="(value,key) in object">
+			{{key}}:{{value}}
+		</li>
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#hys',
+			data: {
+				object: {
+					Name: 'John Reese',
+					Profession: 'Assassin',
+					Organization: 'CIA'
+				}
+			}
+		})
+
+		var data={
+			Name: 'John Reese',
+			Profession: 'Assassin',
+			Organization: 'CIA'
+		}
+
+		var app=new Vue({
+			el:'#app',
+			data:data
+		})
+
+		document.write(app.Name === app.Name)
+		document.write("<br>")
+		document.write(data.Name + "<br>") 
+		data.Organization = 'POI'
+		document.write(data.Organization) 
+	</script>
+
+
+</body>
+
+</html>
