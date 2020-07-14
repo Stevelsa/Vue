@@ -1,8 +1,8 @@
 <template>
-  <div class="navbar" role="navigation">
+  <div class="navbar navbar-default" role="navigation">
     <div class="container">
-      <div class="header">
-          <router-link to="">首页</router-link>
+      <div class="navbar-header">
+          <router-link to="/home">首页</router-link>
       </div>
       <div class="clearfix">
         <ul>

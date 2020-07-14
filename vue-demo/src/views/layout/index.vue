@@ -1,22 +1,20 @@
 <template>
     <div class="container">
         <navbar/>
-        <AppMain/>
-        <footer/>
+        <footerinfo/>
     </div>
 </template>
 
 <script>
 import Navbar from './Navbar'
 import AppMain from './AppMain'
-import Footer from './Footer'
+import footerinfo from './Footer'
 
 export default {
     name:'Layout',
     components:{
-    	Navbar,
-    	AppMain,
-    	Footer
+        Navbar,
+        footerinfo
     }
 }
 </script>
