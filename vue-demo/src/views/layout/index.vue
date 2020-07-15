@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <navbar/>
+        <AppMain/>
         <footerinfo/>
     </div>
 </template>
@@ -14,6 +15,7 @@ export default {
     name:'Layout',
     components:{
         Navbar,
+        AppMain,
         footerinfo
     }
 }

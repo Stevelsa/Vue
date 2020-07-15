@@ -1,0 +1,38 @@
+
+.navbar{
+	border:none;
+	min-height: 30px;
+	a:hover{
+		color: #03b3b2;
+	}
+}
+
+.navbar-default{
+	background-color: #e3e4e5;
+	border-color: #ddd !important;
+	.container{
+		width: 1190px;
+		margin: 0 auto;
+	}
+}
+
+.clearfix{
+	float: right;
+	height: 31px;
+	.navbar-right{
+		height: 31px;
+		margin-top: -9px;
+	}
+	ul{
+		list-style: none;
+		margin-left: 50px;
+	}
+	li{
+		line-height: 40px;
+		float: left;
+	}
+	a{
+		color: #999;
+		text-decoration: none;
+	}
+}

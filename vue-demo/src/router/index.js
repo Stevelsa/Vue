@@ -5,30 +5,39 @@ import Layout from '@/views/Layout/index'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/home',
-      name: 'homepage',
-      component: ()=> import('@/views/home/home')
+      name: 'home',
+      component: () => import('@/views/home/index')
     },
     {
       path: '/',
       component: Layout,
-      children: [
-      {
-        path: '',
-        redirect:'film'
-      },
-      {
-        path: 'film',
-        name: 'film',
-        component: () => import('@/views/film/film')
-      }]
+      children: [{
+          path: '',
+          redirect: 'index'
+        },
+        {
+          path: '/index',
+          name: 'index',
+          component: () => import('@/views/home/home')
+        }
+      ]
+    },
+    {
+      path: '/film',
+      name: 'film',
+      component: () => import('@/views/film/film')
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('@/views/search/index')
     },
     {
       path: '/404',
       name: '404',
-      component: ()=> import('@/views/404')
+      component: () => import('@/views/404')
     },
     {
       path: '*',
