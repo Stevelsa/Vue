@@ -1,6 +1,5 @@
 <template>
     <div class="brand">
-        <img src="@/assets/douban.jpg" alt class="logo">
         <div class="search_input">
             <el-input v-model="keyword" placeholder="please input" @keyup.enter.native="doSearch">
             <el-button slot="append" icon="el-icon-search"  @click="doSearch"></el-button>

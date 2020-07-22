@@ -11,6 +11,11 @@ export default new Router({
       component: () => import('@/views/home/index')
     },
     {
+      path: '/ucentre',
+      name: 'ucentre',
+      component: ()=> import('@/views/ucentre/index')
+    },
+    {
       path: '/',
       component: Layout,
       children: [{
@@ -30,9 +35,9 @@ export default new Router({
       component: () => import('@/views/film/film')
     },
     {
-      path: '/search',
-      name: 'search',
-      component: () => import('@/views/search/index')
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/login/index')
     },
     {
       path: '/404',

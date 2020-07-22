@@ -4,16 +4,17 @@
     <router-link to="/film">
       <h2>{{msg}}</h2>
     </router-link>
-    <SearchBar></SearchBar>
+    <SearchBar/>
   </div>
 </template>
 
 <script>
+
 import SearchBar from '@/components/SearchBar/index.vue'
 
 export default {
   name: "home",
-  componets:{
+  components:{
     SearchBar
   },
   data() {
@@ -32,5 +33,6 @@ h2 {
 }
 a {
   color: #42b983;
+  text-decoration: none;
 }
 </style>
