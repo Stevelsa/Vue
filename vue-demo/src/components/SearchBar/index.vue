@@ -26,7 +26,7 @@ export default {
                 })
                 return
             }
-            this.$$route.push({
+            this.$route.push({
                 path:'/search',
                 query:{keyword:this.keyword,_random:Math.random()}
             })

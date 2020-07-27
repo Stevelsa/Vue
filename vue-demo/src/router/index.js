@@ -23,9 +23,14 @@ export default new Router({
           redirect: 'index'
         },
         {
-          path: '/index',
+          path: 'index',
           name: 'index',
           component: () => import('@/views/home/home')
+        },
+        {
+          path: 'filmcard',
+          name: 'filmcard',
+          component: () => import('@/views/film/filmcard')
         }
       ]
     },
