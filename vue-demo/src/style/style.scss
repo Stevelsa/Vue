@@ -23,16 +23,15 @@ a:hover {
 .navbar {
   border: none;
   min-height: 30px;
-
   a:hover {
     color: #03b3b2;
   }
 }
 
 .navbar-default {
+  overflow: hidden;
   background-color: #e3e4e5;
   border-color: #ddd !important;
-
   .container {
     width: 1190px;
     margin: 0px auto;
@@ -42,49 +41,31 @@ a:hover {
 .clearfix {
   float: right;
   height: 31px;
-
-  &::after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: "";
-    clear: both;
-    height: 0;
-  }
-
   .navbar-right {
     height: 31px;
     margin-top: -9px;
   }
-
-  ul {
+  ul{
     list-style: none;
     margin-left: 50px;
   }
-
-  li {
+  li{
     line-height: 40px;
     float: left;
   }
-
-  a {
+  a{
     color: #999;
     text-decoration: none;
   }
 }
-
 .navbar-default .navbar-brand,
-.navbar-default .navbar-nav>li>a {
-  padding: 9px 15px !important;
+.navbar-default .navbar-nav > li > a{
+  padding: 6px 15px !important;
   height: 12px;
   line-height: 12px;
   color: #999;
   font-size: 12px;
   display: block;
-
-  &:hover {
-    color: $--color-primary;
-  }
 }
 
 .brand {
@@ -280,5 +261,71 @@ fof-container {
 .user-admin {
   .date-input {
     width: 133px !important;
+  }
+}
+
+.login-page{
+  background-color: #e3e4e5;
+  .navbar{
+    height: 80px;
+    width: 1190px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .logo{
+    width: 124px;
+    height: 50px;
+    margin-top: 15px;
+    float: left;
+  }
+  .container{
+    overflow: hidden;
+    background: url('~@/assets/back.jpg') center center no-repeat;
+  }
+  .login-container{
+    overflow: hidden;
+    width: 1190px;
+    height: 475px;
+    margin: 0 auto;
+  .img-contain{
+      margin: 60px auto;
+    }
+  .el-col-12{
+    text-align: center;
+  }
+  .el-form{
+    width: 360px;
+    max-width: 100%;
+    margin: 60px 10px auto;
+    background-color: #fff;
+    padding: 60px 20px 40px;
+  }
+  .el-input{
+    display: inline-block;
+    height: 30px;
+    width: 85%;
+    input{
+      border: 0px;
+      border-radius: 0px;
+      padding: 12px 5px 12px 15px;
+      color: #333;
+      height: 30px;
+    }
+  }
+  .el-form-item{
+    border: 0px solid #ccc;
+    height: 32px;
+  }
+  .login-btn{
+    height: 33px;
+    width: 100%;
+    border-radius: 0px;
+  }
+  .title{
+    font-size: 18px;
+    color:black;
+    margin: 0px auto 40px auto;
+    text-align: center;
+  }
   }
 }
