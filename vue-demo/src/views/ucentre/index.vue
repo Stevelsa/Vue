@@ -66,23 +66,39 @@
           <el-table-column prop="words" label="关键字"></el-table-column>
           <el-table-column prop="words" label="创建日期"></el-table-column>
         </el-table>
+        <pagenation
+          v-show="total>0"
+          :total="total"
+          :current.sync="pagenation.current"
+          :size="pagenation.size"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Pagenation from "@/components/Pagenation/"
+
 export default {
+  components:{
+    Pagenation
+  },
   data() {
     return {
       form: {
         name: "",
         id: "",
         startDate: "",
-        endDate: ""
-      }
+        endDate: "",
+      },
+      pagenation:{
+        current:1,
+        size:12
+      },
+      total:0
     };
-  }
+  },
 };
 </script>
 
@@ -90,5 +106,4 @@ export default {
 .line {
   text-align: center;
 }
-
 </style>
