@@ -1,18 +1,20 @@
-import request from '@/utils/request'
+import service from '@/utils/request'
 
 export function login(userId,password){
-    return request({
-        utl: '/login',
+    
+    return service({
         method:'post',
+        url: '/login',
         data: {
             userId,
             password
         }
-    })
+    }
+    )
 }
 
 export function logout(){
-    return request ({
+    return service ({
         url: '/logout',
         method: 'get'
     })

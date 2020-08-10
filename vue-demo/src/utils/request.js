@@ -11,8 +11,11 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
   config => {
+    config.headers= {
+      'Content-Type':'application/x-www-form-urlencoded'
+    }
       // 每个请求携带自定义token,根据实际情况自行拟定
-      config.headers['']=''
+      // config.headers['X-Token']='123456'
     return config
   },
   error => {
@@ -34,7 +37,7 @@ service.interceptors.response.use(
         "detail":
     }*/
     const res = response.data
-    if (!res.suceess) {
+    if (response.status && response.status == 200 && response.data.status == 500) {
       Message({
         message: res.message,
         type: 'error',
