@@ -3,7 +3,7 @@ import {getUser,setUser,removeUser} from '@/utils/auth'
 
 const user={
     state:{
-        user:getUser
+        user:getUser()
     },
     mutations:{
         SET_USER:(state,user)=>{
@@ -12,11 +12,12 @@ const user={
     },
     actions:{
         Login({commit},userInfo){
-            const userId=userInfo.userId.trim()
+            const username=userInfo.username.trim()
             return new Promise((resolve,reject)=>{
-                login(userId,userInfo.password)
+                login(username,userInfo.password)
                 .then(response=>{
                     const data=response.data
+                    alert("I'm"+data)
                     setUser(data)
                     commit('SET_USER',data)
                     resolve()
@@ -25,18 +26,18 @@ const user={
                     reject(error)
                 })
             })
-        }
-    },
-    LogOut({commit,state}){
-        return new Promise((resolve,reject)=>{
-            logout().then(()=>{
-                commit(SET_USER,null)
-                removeUser()
-                resolve()
-            }).catch(error=>{
-                reject(error)
+        },
+        LogOut({commit,state}){
+            return new Promise((resolve,reject)=>{
+                logout().then(()=>{
+                    commit('SET_USER',null)
+                    removeUser()
+                    resolve()
+                }).catch(error=>{
+                    reject(error)
+                })
             })
-        })
+        }
     }
 }
 

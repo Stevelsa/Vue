@@ -11,7 +11,7 @@ module.exports={
 
     devServer:{
         host: 'localhost',
-        port:8082,
+        port:8081,
         overlay:{
             warnings:true,
             errors:true
@@ -21,7 +21,7 @@ module.exports={
                 target: 'http://localhost:8088',
                 changeOrigin:true,
                 pathRewrite:{
-                    '^/':''
+                    '^/':'/'
                 }
             }
         }

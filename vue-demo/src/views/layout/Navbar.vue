@@ -7,11 +7,16 @@
 
       <div class="clearfix">
         <ul class="nav navbar-nav navbar-right">
-          <li>
+          <li v-if="!user">
             <router-link to="/login">登录</router-link>
           </li>
-          <li>
+          <li v-if="user">
             <router-link to="/ucentre">个人中心</router-link>
+          </li>
+          <li>
+            <a>
+              <span @click="logout">登出</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -20,8 +25,24 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  computed:{
+    ...mapGetters(['user'])
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("LogOut").then(() => {
+        if (this.$route.path === "/home") {
+          location.reload();
+        } else {
+          this.$router.push({ path: "/" });
+          location.reload();
+        }
+      });
+    },
+  },
 };
 </script>
 

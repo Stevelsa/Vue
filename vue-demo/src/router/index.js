@@ -6,38 +6,28 @@ Vue.use(Router)
 
 export default new Router({
   routes: [{
-      path: '/home',
-      name: 'home',
-      component: () => import('@/views/home/index')
-    },
-    {
-      path: '/ucentre',
-      name: 'ucentre',
-      component: ()=> import('@/views/ucentre/index')
-    },
-    {
       path: '/',
       component: Layout,
       children: [{
           path: '',
-          redirect: 'index'
+          redirect: 'home'
         },
         {
-          path: 'index',
-          name: 'index',
+          path: 'home',
+          name: 'home',
           component: () => import('@/views/home/home')
         },
         {
-          path: 'filmcard',
-          name: 'filmcard',
-          component: () => import('@/views/film/filmcard')
-        }
+          path: 'film',
+          name: 'film',
+          component: () => import('@/views/film/film')
+        },
+        {
+          path: 'ucentre',
+          name: 'ucentre',
+          component: () => import('@/views/ucentre/index')
+        },
       ]
-    },
-    {
-      path: '/film',
-      name: 'film',
-      component: () => import('@/views/film/film')
     },
     {
       path: '/login',

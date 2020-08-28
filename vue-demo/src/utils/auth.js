@@ -1,7 +1,9 @@
 const key='user'
 
 export function getUser(){
-    return localStorage.getItem(key)?JSON.parse(localStorage.getItem(key)):undefined
+    // return localStorage.getItem(key)
+    // ?JSON.parse(localStorage.getItem(key))
+    // :undefined
 }
 
 export function setUser(user){

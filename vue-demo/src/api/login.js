@@ -1,16 +1,22 @@
 import service from '@/utils/request'
 
-export function login(userId,password){
+export function login(username,password){
     
     return service({
         method:'post',
         url: '/login',
         data: {
-            userId,
+            username,
             password
-        }
-    }
-    )
+        },
+        transformRequest:[function(data){
+            let ret=''
+            for (let it in data){
+                ret+=encodeURIComponent(it)+'='+encodeURIComponent(data[it])+'&'
+            }
+            return ret
+        }]
+    })
 }
 
 export function logout(){
