@@ -41,8 +41,17 @@ module.exports = {
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
+        test:/\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [resolve('src/icons')],
+        options: {
+          symbolId: 'icon-[name]'//去掉svg这个图片加载不出来
+        }
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
+        exclude: [resolve('src/icons')],
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')

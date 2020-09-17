@@ -16,6 +16,22 @@ a:hover {
   text-decoration: none;
 }
 
+.card {
+  background-color: #f7fcf9;
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-top: 0px;
+  float: center;
+
+  .head {
+    text-align: center;
+  }
+
+  .body {
+    text-align: left;
+  }
+}
+
 .app-container {
   padding: 20px;
 }
@@ -23,6 +39,7 @@ a:hover {
 .navbar {
   border: none;
   min-height: 30px;
+
   a:hover {
     color: #03b3b2;
   }
@@ -32,6 +49,7 @@ a:hover {
   overflow: hidden;
   background-color: #e3e4e5;
   border-color: #ddd !important;
+
   .container {
     width: 1190px;
     margin: 0px auto;
@@ -41,25 +59,30 @@ a:hover {
 .clearfix {
   float: right;
   height: 31px;
+
   .navbar-right {
     height: 31px;
     margin-top: -9px;
   }
-  ul{
+
+  ul {
     list-style: none;
     margin-left: 50px;
   }
-  li{
+
+  li {
     line-height: 40px;
     float: left;
   }
-  a{
+
+  a {
     color: #999;
     text-decoration: none;
   }
 }
+
 .navbar-default .navbar-brand,
-.navbar-default .navbar-nav > li > a{
+.navbar-default .navbar-nav>li>a {
   padding: 6px 15px !important;
   height: 12px;
   line-height: 12px;
@@ -111,6 +134,63 @@ a:hover {
   li {
     line-height: 30px;
     float: left;
+  }
+}
+
+.panel-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-left: 6px solid #7a6e6e;
+  height: 100%;
+  width: 270px;
+  background-color: #e3e4e5;
+  color: #999;
+  z-index: 100;
+
+  &.fold {
+    right: -270px;
+    visibility: hidden;
+  }
+
+  .handler {
+    position: absolute;
+    top: 50%;
+    left: -29px;
+    right: 0;
+    margin: -17.5px 0 0 0;
+    padding: 6px;
+    width: 23px;
+    height: 23px;
+    background-color: #009237;
+    line-height: 23px;
+    color: $--color-white;
+    font-size: 23px;
+    cursor: pointer;
+    visibility: visible;
+  }
+
+  .pane-header{
+    color: inherit;
+  }
+
+  .cart-main{
+    height: 80%;
+    overflow-y: auto;
+    .c-text{
+      font-size: 14px;
+      padding: 20px;
+      margin: 50% auto;
+    }
+  }
+
+  .pane-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    line-height: 20px;
   }
 }
 
@@ -264,68 +344,83 @@ fof-container {
   }
 }
 
-.login-page{
+.login-page {
   background-color: #e3e4e5;
-  .navbar{
+
+  .navbar {
     height: 80px;
     width: 1190px;
     margin: 0 auto;
     overflow: hidden;
   }
-  .logo{
+
+  .logo {
     width: 124px;
     height: 50px;
     margin-top: 15px;
     float: left;
   }
-  .container{
+
+  .container {
     overflow: hidden;
     background: url('~@/assets/back.jpg') center center no-repeat;
   }
-  .login-container{
+
+  .login-container {
     overflow: hidden;
     width: 1190px;
     height: 475px;
     margin: 0 auto;
-  .img-contain{
+
+    .img-contain {
       margin: 60px auto;
     }
-  .el-col-12{
-    text-align: center;
-  }
-  .el-form{
-    width: 360px;
-    max-width: 100%;
-    margin: 60px 10px auto;
-    background-color: #fff;
-    padding: 60px 20px 40px;
-  }
-  .el-input{
-    display: inline-block;
-    height: 30px;
-    width: 85%;
-    input{
-      border: 0px;
-      border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: #333;
+
+    .el-col-12 {
+      text-align: center;
+    }
+
+    .el-form {
+      width: 360px;
+      max-width: 100%;
+      margin: 60px 10px auto;
+      background-color: #fff;
+      padding: 60px 20px 40px;
+    }
+
+    .el-input {
+      display: inline-block;
       height: 30px;
+      width: 85%;
+
+      input {
+        border: 0px;
+        border-radius: 0px;
+        padding: 12px 5px 12px 15px;
+        color: #333;
+        height: 30px;
+      }
+    }
+
+    .el-form-item {
+      border: 0px solid #ccc;
+      height: 32px;
+    }
+
+    .login-btn {
+      height: 33px;
+      width: 100%;
+      border-radius: 0px;
+    }
+
+    .title {
+      font-size: 18px;
+      color: black;
+      margin: 0px auto 40px auto;
+      text-align: center;
     }
   }
-  .el-form-item{
-    border: 0px solid #ccc;
-    height: 32px;
-  }
-  .login-btn{
-    height: 33px;
-    width: 100%;
-    border-radius: 0px;
-  }
-  .title{
-    font-size: 18px;
-    color:black;
-    margin: 0px auto 40px auto;
-    text-align: center;
-  }
-  }
+
+  
+
 }

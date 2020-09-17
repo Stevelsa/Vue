@@ -61,10 +61,10 @@
           <span>所有信息</span>
         </div>
         <el-table :data="listData" stripe border tooltip-effect="dark" empty-text="没有可显示的订单">
-          <el-table-column prop="name" label="用户">
+          <el-table-column label="用户">
             <template slot-scope="scope">{{scope.row.nickname}}</template>
           </el-table-column>
-          <el-table-column prop="words" label="关键字">
+          <el-table-column label="关键字">
             <template slot-scope="scope">
               <span
                 style="color:#409eff; cursor: pointer"
@@ -72,8 +72,14 @@
               >{{scope.row.title}}</span>
             </template>
           </el-table-column>
-          <el-table-column prop="words" label="创建日期">
+          <el-table-column label="创建日期">
             <template slot-scope="scope">{{scope.row.publishDate}}</template>
+          </el-table-column>
+          <el-table-column label="操作">
+            <template slot-scope="scope">
+              <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+              <el-button size="mini" @click="handleDelete(scope.row)">删除</el-button>
+            </template>
           </el-table-column>
         </el-table>
         <pagenation
@@ -82,8 +88,7 @@
           :current.sync="pagenation.current"
           :size="pagenation.size"
           @pagenation="getDataQuantity"
-        >
-        </pagenation>
+        ></pagenation>
       </div>
     </div>
   </div>
@@ -96,6 +101,7 @@ export default {
   components: {
     Pagenation,
   },
+  inject:['reload'],
   data() {
     return {
       form: {
@@ -113,28 +119,54 @@ export default {
     };
   },
   created() {
-    this.getDataQuantity();
+    this.getDataQuantity(this.pagenation);
   },
   methods: {
-    getDataQuantity() {
-      this.getRequest("/article/all")
+    getDataQuantity(pagenation) {
+      this.getRequest("/article/all/user", pagenation)
         .then((resp) => {
-          this.loading;
           if (resp.status == 200) {
-            this.listData = resp.data
-            this.total=resp.data.length
+            this.listData = resp.data.list;
+            this.total = resp.data.total;
           } else {
-            this.$message({ type: "error", message: "200 数据加载失败" });
+            this.$message({ type: "error", message: "数据加载失败" });
           }
         })
         .catch((resp) => {
-          this.$message({ type: "error", message: "catch 数据加载失败" });
+          this.$message({ type: "error", message: "catch 异常" });
         });
     },
     itemClick(row) {
-      this.$router.push({ path: "/article" });
+      this.$router.push({ path: "/article/", query: { aid: row.id } });
     },
-  },
+    handleDelete(param) {
+      this.$confirm("永久删除该文件, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      }).then(() => {
+          this.postRequest("/article/delete",{aid:param.id})
+          .then(resp=>{
+            if(resp.status==200){
+              if(resp.data.status=='success'){
+                this.$message({type:"success",message:"delete success"}),
+                this.reload()
+              }
+            }else{
+              this.$message({type:"error", message: "delete fail"})
+            }
+          })
+          .catch(()=>{
+            this.$message({type:"error", message: "catch error"})
+          })
+        }).catch(() => {
+          this.$message({
+            type: "info",
+            message: "delete cancel",
+          });
+        })
+    }
+  }
 };
 </script>
 

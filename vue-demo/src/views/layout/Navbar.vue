@@ -13,7 +13,7 @@
           <li v-if="user">
             <router-link to="/ucentre">个人中心</router-link>
           </li>
-          <li>
+          <li v-if="user">
             <a>
               <span @click="logout">登出</span>
             </a>

@@ -5,16 +5,18 @@
       <h2>{{msg}}</h2>
     </router-link>
     <SearchBar />
+    <Cart />
   </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar/index.vue";
-
+import Cart from "@/components/Cart/";
 export default {
   name: "home",
   components: {
-    SearchBar
+    SearchBar,
+    Cart
   },
   data() {
     return {

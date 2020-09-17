@@ -27,6 +27,16 @@ export default new Router({
           name: 'ucentre',
           component: () => import('@/views/ucentre/index')
         },
+        {
+          path: 'article',
+          name: 'article',
+          component: () => import('@/views/article/artitleDetail')
+        },
+        {
+          path: 'warticle',
+          name: 'warticle',
+          component: () => import('@/views/article/index')
+        }
       ]
     },
     {
